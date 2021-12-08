@@ -9,7 +9,7 @@ connectDB();
 app.use(express.urlencoded());
 app.use(express.json({
     type: ['application/json', 'text/plain']
-  }))
+  })) 
 
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static("client/build"));
