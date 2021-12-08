@@ -62,7 +62,7 @@ const BarChart=(props) => {
     else
     {
         return (
-            <h1>Select currencies to see graphs!</h1>
+            <h1>Select currencies to see graph!</h1>
         );
     }
 }

@@ -7,6 +7,7 @@ import Home from './components/Home/Home';
 import Navbar from './components/UI/Navbar';
 import History from './components/History/History'
 import Header from './components/UI/Header';
+import Footer from './components/UI/Footer';
 
 function App() {
   
@@ -18,6 +19,7 @@ function App() {
           <Route exact path="/history" element={<History/>}></Route>
           <Route exact path="/" element={<Home/>}></Route>
         </Routes>
+        <Footer/>
       </React.Fragment>
 
   );

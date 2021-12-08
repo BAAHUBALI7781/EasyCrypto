@@ -74,9 +74,12 @@ const Home = (props)=>{
     useEffect(()=>{
        fetchCurrencies();
     },[])
-
+    const style={
+        minHeight:"100vh"
+    }
     return (
         <React.Fragment>    
+            <div style={style}>
             <Card card="card">
                 <h4>You can select upto 8 crypto coins</h4>
                 <div className={classes.dropdown}>
@@ -93,6 +96,8 @@ const Home = (props)=>{
             
             
             <BarChart data={data}/>
+            </div>
+            
         </React.Fragment>
     );
         

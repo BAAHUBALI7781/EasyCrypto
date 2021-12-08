@@ -1,10 +1,9 @@
-nav{
+.navbar-expand-lg{
     display:flex;
     justify-content:space-between;
-    padding:10px 10px;
-}
-nav div{
-    width:auto;
+    padding: 1.2rem;
+    box-shadow: 0 8px 20px -6px black;
+    margin-bottom:4rem;
 }
 nav a{
     text-decoration: none;
@@ -20,4 +19,11 @@ nav a:hover{
 .collapse{
     margin-left:4%;
 
+}
+.navbar-brand:hover{
+    color:red;
+}
+nav ul{
+    display:flex;
+    justify-content:space-between;
 }
