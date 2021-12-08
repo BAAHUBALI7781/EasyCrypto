@@ -3,9 +3,6 @@ const router=express.Router();
 const CryptoSchema=require('../models/cryptohistory');
 const fetch = require('cross-fetch');
 
-router.get('/',function(req,res){
-    res.send('Hello World')
-});
 
 router.post('/compareData',async function(req,res){
     const newCrypto = await CryptoSchema.create(req.body);
