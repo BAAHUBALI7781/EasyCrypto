@@ -1,0 +1,23 @@
+nav{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 10px;
+}
+nav div{
+    width:auto;
+}
+nav a{
+    text-decoration: none;
+    color:white;
+
+}
+nav>a{
+    margin-left:10px;
+}
+nav a:hover{
+    color:red;
+}
+.collapse{
+    margin-left:4%;
+
+}

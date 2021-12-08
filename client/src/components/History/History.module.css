@@ -1,0 +1,19 @@
+.heading{
+    margin-top:2rem;
+}
+.list{
+    display:block;
+    width:100%;
+    max-width:80%;
+}
+.listdiv{
+    width:100%;
+}
+.list li{
+    list-style:none;
+    width:100%;
+    font-size:larger;
+    font-weight:600;
+    display:flex;
+    justify-content:space-between;
+}
