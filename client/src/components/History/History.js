@@ -7,10 +7,12 @@ import Chart from '../Chart/Chart';
 
     let data;
     const [historyData,sethistoryData] = useState();
+    const [isRendered,setRendered]=useState(false);
     async function findHistory(){
+        setRendered(false);
         data=await fetch("/getHistory");
         data = await data.json();
-
+        setRendered(true);
         let historyDataComplete=data.data.history.map((history)=>{
             let date=new Date(history.createdAt);
             date = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ", " + date.toDateString();
@@ -37,14 +39,18 @@ import Chart from '../Chart/Chart';
         findHistory();
     },[])
 
-
+    const style={
+        minHeight:"80vh"
+    }
     return (
         <React.Fragment>
             <h1 className={classes.heading}>All Comparision History</h1>
             <div className={classes.listdiv}>
-                <ul className={classes.list}>
-                    {historyData}
-                </ul>
+                {
+                    isRendered?<ul className={classes.list}>
+                        {historyData}
+                    </ul>:<h1 style={style}>Loading..... Please wait</h1>
+                }
             </div>
         </React.Fragment>
     );

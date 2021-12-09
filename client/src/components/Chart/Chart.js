@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {Bar} from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto'
 import classes from './Chart.module.css'
@@ -12,17 +12,15 @@ const BarChart=(props) => {
         const lab=Object.keys(dataObj);
         let dataset=[];
         for(let i of lab){
-            console.log();
             dataset=[...dataset,dataObj[i].USD];
         }
-        console.log(dataset);
         return (
             
                 <div className={classes.barChart}>
                 <Bar data={{
                     labels:lab,
                     datasets: [{
-                        label: 'Crypto Compare (all data in USD)',
+                        label: 'Crypto Price (all data in USD)',
                         data: dataset,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',

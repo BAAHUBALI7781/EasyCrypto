@@ -9,7 +9,7 @@ const Home = (props)=>{
     const [data,setData]=useState();
     const [options,setOptions]=useState();
     const [inputCoins,setInputCoins]=useState([]);
-
+    const [isRendered,setRendered]=useState(true);
     function changeFirst(e){
         if(inputCoins.includes(e.value)){
             alert(`Already chosen ${e.value}`);
@@ -35,11 +35,11 @@ const Home = (props)=>{
             url+=coin+',';
         }
         url+="&tsyms=USD,EUR";
-        console.log(url);
+        setRendered(false);
         const response =await fetch(url);
         const responseData=await response.json();
         setData(responseData);
-        console.log(responseData);
+        setRendered(true);
         const pushResponse=await fetch("/compareData",{
             method: "POST",
             headers:{
@@ -65,6 +65,7 @@ const Home = (props)=>{
         allOptions=allCoins.map(coin=>{
             return coin.symbol;
         });
+        allOptions.sort()
         setOptions(allOptions);
     }
     let inputData=inputCoins.map(coin=>{
@@ -83,7 +84,7 @@ const Home = (props)=>{
             <Card card="card">
                 <h4>You can select upto 8 crypto coins</h4>
                 <div className={classes.dropdown}>
-                    <Dropdown clasName={classes.drop} options={options} onChange={changeFirst} placeholder="BTC" />
+                    <Dropdown clasName={classes.drop} options={options} onChange={changeFirst} placeholder="Select crypto coins" />
                  </div>
                  <ul>
                      {inputData}
@@ -95,7 +96,7 @@ const Home = (props)=>{
             </Card>
             
             
-            <BarChart data={data}/>
+            {isRendered?<BarChart data={data}/>:<h2 className={classes.loading}>"Loading... Please wait"</h2>}
             </div>
             
         </React.Fragment>
