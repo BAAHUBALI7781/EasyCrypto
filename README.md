@@ -1,6 +1,7 @@
 # EasyCrypto
 ## Easy-Crypto is a crypto comparator, where your can compare latest 100 cryptocurrencies.
 
+### Tech-stack used : React, NodeJS, Express, MongoDB
 ### Setup : 
 
 ``` bash
